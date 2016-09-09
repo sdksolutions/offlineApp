@@ -1,0 +1,79 @@
+<!Doctype HTML>
+<html lang="en" manifest="cache.manifest">
+	<HEAD>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="StyleSheet" href="sample.css" type="text/css">
+	</HEAD>
+	<BODY>
+		<main>
+			<span id="online"></span>
+			<h2>Welcome Sandeep</h2>
+			<br/>
+			<div id="log-container">
+				<h3 id="event-header"> Event Log</h3>
+				
+				<a href="home.html">Go To Home Page</a>
+				<aside id="log">
+				
+				</aside>
+			</div>
+		</main>
+		<script src="jquery.js"></script>
+		<script src="modernizr.js"></script>
+		<script>
+		function isOnline(){
+			return navigator.onLine;
+		}
+		
+		var updateNetworkStatus=function(){
+			document.querySelector('#online').innerHTML='Online : ';
+			document.querySelector('#online').innerHTML+=isOnline()?'Yes':'No';
+		}
+		$(function(){
+			logEvent('Window loaded');
+			window.applicationCache.onupdateready = function(e){
+				logEvent('Update Ready');
+				logEvent('Swapping Cache');
+				applicationCache.swapCache();
+
+			};
+			window.applicationCache.oncached=function(e){
+				logEvent('Application Cached');
+			};
+			window.applicationCache.onchecking=function(e){
+				logEvent('Checking Cache');
+			};
+			window.applicationCache.ondownloading=function(e){
+				logEvent('Downloading');
+			};
+			window.applicationCache.onnoupdate=function(e){
+				logEvent('No Update');
+			};
+			window.applicationCache.onprogress=function(e){
+				logEvent('In Progress');
+			};
+			window.applicationCache.onerror=function(e){
+				logEvent('Error while loading');
+			};
+						
+			function logEvent(e){
+				var ul = document.querySelector('#log');
+				var li = document.createElement('li');
+				li.innerHTML=e;
+				ul.appendChild(li);
+			}
+			
+			window.addEventListener('online',function(e){
+				updateNetworkStatus();
+			},true);
+			
+			window.addEventListener('offline',function(e){
+				updateNetworkStatus();
+			},true);
+			
+			updateNetworkStatus();
+		});
+		</script>
+	</BODY>
+</html>

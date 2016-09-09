@@ -1,0 +1,51 @@
+		h2{
+				color: #fff;
+				text-shadow: 2px 2px 5px yellow;
+				font-weight: 600;
+				font-size: 50px;
+				background: linear-gradient(to right,black,gray);
+				height: 67px;
+				margin: 0 auto;
+				padding: 15px;
+				border-radius: 30px;
+				text-align: center;
+				width: 400px;
+			}
+		#event-header{
+			color: #fff;
+			font-weight: 600;
+			font-size: 20px;
+			border-radius: 30px;
+		}
+		#log-container{
+			width: 400px;
+			height: auto;
+			background: linear-gradient(to right,#777,#ccc);
+			color: #333;
+			font-size: 17px;
+			font-weight: 200;
+			border-radius: 10px;
+			margin: 0 auto;
+			padding: 20px;
+			font-family: monospace;
+		}
+		#log-container li{
+			background: linear-gradient(black,white);
+			-webkit-background-clip: text !important;
+			-moz-background-clip: text !important;
+			-webkit-background-clip: text !important;
+			background-clip:unset;
+			-webkit-text-fill-color: transparent;
+			text-shadow: 1px 1px 5px red;
+			font-weight: bolder;
+			font-size: 35px;
+		}
+		#online{
+				background: linear-gradient(lightblue,blue);
+				color: #DDD;
+				font-size: 20px;
+				font-weight: 100;
+				float: right;
+				padding: 10px;
+				border-radius: 10px;
+			}
